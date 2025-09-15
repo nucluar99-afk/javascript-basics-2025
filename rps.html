@@ -1,5 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>CASTLE ROCK PAPER SCISSORS</title>
+		<link rel="stylesheet" href="css/style.css" />
+		<style>
+			body {
+				background-color: royalblue;
+				color: gold;
+				font-family: Cambria, Cochin, Georgia, Times, "Times New Roman",
+					serif;
+			}
+
+			button {
+				color: purple;
+				padding: 100px;
+				box-shadow: 5px 5px 5px black;
+				background-color: black;
+				font-size: 50px;
+				border-radius: 20px;
+			}
+
+			.button-container {
+				border: 10px solid red;
+				margin: 20px;
+				padding: 10px;
+				background-color: red;
+				border-radius: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Rock, Paper, Scissors</h1>
+
+		<div class="button-container">
+			<button onclick="pickWeapon(ROCK)">Rock</button>
+			<button onclick="pickWeapon(PAPER)">Paper</button>
+			<button onclick="pickWeapon(SCISSORS)">Scissors</button>
+		</div>
+
+		<div id="aftermath">Battle Results</div>
+
+		<!-- Link to your JavaScript file -->
+		<script src="scripts/rps/app.js"></script>
+	</body>
+</html>
+
+<!-- <!DOCTYPE html>
+<html lang="en">
 	
 	<head>
 		<meta charset="UTF-8" />
@@ -11,13 +60,13 @@
 	<body>
 		<h1>Rock, Paper, Scissors</h1>
 
-		<button onclick="pickWeapon('rock')">Rock</button>
-		<button onclick="pickWeapon('paper')">Paper</button>
-		<button onclick="pickWeapon('scissors')">Scissors</button>
-		<button onclick="pickWeapon('fireball')">fireball</button>
+		<button onclick="pickWeapon(ROCK)">Rock</button>
+		<button onclick="pickWeapon(PAPER)">Paper</button>
+		<button onclick="pickWeapon(SCISSORS)">Scissors</button>
+		<button onclick="pickWeapon(FIREBALL)">fireball</button>
 
 		<div id="Aftermath">Battle Results</div>
 
 		<script src="scripts/rps/app.js"></script>
 	</body>
-</html>
+</html> -->
