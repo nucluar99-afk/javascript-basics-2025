@@ -20,7 +20,7 @@ let aftermathElement = document.getElementById("aftermath");
 if (aftermathElement == null) {
 	throw "aftermath is not defined! Check your HTML!!";
 }
-
+//@ts-ignore
 const pickWeapon = function (weapon) {
 	let aftermathText = `Player picked ${weapon}. `;
 	console.log("Player picked", weapon);
@@ -72,7 +72,7 @@ const selectComputerWeapon = function () {
 	// don't know what random number is choosing!
 	throw "Unknown weapon";
 };
-
+//@ts-ignore
 function decideResults(player, computer) {
 	// create a result object to hold the
 	// default state of the outcome of the
@@ -133,13 +133,19 @@ function decideResults(player, computer) {
 
 	result.description = "Don't know what happened!";
 	return result;
+
+	
 }
 
-//  1. player picks weapon
-//  2. computer pick random weapon
-//  3. determine winner
-//  4. display results
-//  5. play again? / keep playing
+const gameOversetInterval = setInterval (gameOver, 10);
+
+function gameOver () {
+	 if (winCount + tieCount > lossCount) {
+	console.log("gameOver");
+	clearInterval(gameOversetInterval);
+};
+
+}
 
 // const ROCK = "rock";
 // const PAPER = "paper";
