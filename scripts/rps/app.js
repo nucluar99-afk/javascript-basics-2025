@@ -20,6 +20,10 @@ let aftermathElement = document.getElementById("aftermath");
 if (aftermathElement == null) {
 	throw "aftermath is not defined! Check your HTML!!";
 }
+/** @type { HTMLElement } */
+//@ts-ignore checking for null below
+let loserScreen = document.getElementById("game-over");
+
 //@ts-ignore
 const pickWeapon = function (weapon) {
 	let aftermathText = `Player picked ${weapon}. `;
@@ -41,11 +45,13 @@ const pickWeapon = function (weapon) {
 		winner = results.description;
 	} else if (results.playerWon) {
 		winCount += 1;
-		winner = "YOU HAVE BEEN CROWEND KING";
+		winner = "YOU HAVE BEEN CROWEND RULER";
 	} else {
 		lossCount++;
 		winner = "TO THE DUNGEONS WITH YOU";
 	}
+
+	Gameover();
 
 	aftermathText += `${winner} Because ${results.description}. Current tally: ties [${tieCount}] wins [${winCount}] losses [${lossCount}]`;
 
@@ -133,19 +139,15 @@ function decideResults(player, computer) {
 
 	result.description = "Don't know what happened!";
 	return result;
-
-	
 }
 
-const gameOversetInterval = setInterval (gameOver, 10);
-
-function gameOver () {
-	 if (winCount + tieCount > lossCount) {
-	console.log("gameOver");
-	clearInterval(gameOversetInterval);
+function Gameover() {
+	if (winCount < lossCount) {
+		console.log("gameOver");
+		loserScreen.textContent = "Game Over";
+		
+	};
 };
-
-}
 
 // const ROCK = "rock";
 // const PAPER = "paper";
@@ -160,7 +162,7 @@ function gameOver () {
 
 // const seclectComputerWeapon = function () {
 //     const rand = Math.floor(Math.random() * 4);
-    
+
 //     if (rand == 0) {
 //         return ROCK;
 //     }
@@ -173,12 +175,11 @@ function gameOver () {
 //         return SCISSORS
 //     }
 
-     
 //         return FIREBALL;
 
 //          don't know what random number is choosing!
 // 	throw "Unknown weapon";
-    
+
 // };
 
 // function decideResults(player, computer) {
