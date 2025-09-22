@@ -24,6 +24,10 @@ if (aftermathElement == null) {
 //@ts-ignore checking for null below
 let loserScreen = document.getElementById("game-over");
 
+/** @type { HTMLElement } */
+//@ts-ignore checking for null below
+let winnerScreen = document.getElementById("you-won");
+
 //@ts-ignore
 const pickWeapon = function (weapon) {
 	let aftermathText = `Player picked ${weapon}. `;
@@ -52,6 +56,8 @@ const pickWeapon = function (weapon) {
 	}
 
 	Gameover();
+
+	Youwon();
 
 	aftermathText += `${winner} Because ${results.description}. Current tally: ties [${tieCount}] wins [${winCount}] losses [${lossCount}]`;
 
@@ -86,7 +92,7 @@ function decideResults(player, computer) {
 	let result = {
 		isTie: false,
 		playerWon: false,
-		description: "",
+		description: "computer",
 	};
 
 	// this is for a tie
@@ -139,13 +145,23 @@ function decideResults(player, computer) {
 
 	result.description = "Don't know what happened!";
 	return result;
-}
+};
+
+
 
 function Gameover() {
 	if (winCount < lossCount) {
 		console.log("gameOver");
 		loserScreen.textContent = "Game Over";
-		
+	};
+};
+
+
+
+function Youwon() {
+	if (winCount > lossCount) {
+console.log("youwon")
+winnerScreen.textContent = "You Won";
 	};
 };
 
